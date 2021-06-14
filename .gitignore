@@ -1,0 +1,5 @@
+data/to_ingest/*.csv
+venv
+src/database.ini
+.pytest_cache
+tests/.pytest_cache
