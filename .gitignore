@@ -1,4 +1,4 @@
-data/to_ingest/*.csv
+*.csv
 venv
 src/database.ini
 .pytest_cache

@@ -17,5 +17,8 @@ def _resource(zone, key):
 
 
 catalog = {
-    "to_ingest/event_finance_customer_order_line_items": _resource("to_ingest", "event_finance_customer_order_line_items.csv")
+    "to_ingest/event_finance_customer_order_line_items": _resource("to_ingest", "event_finance_customer_order_line_items.csv"),
+    "to_ingest/places": _resource("to_ingest", "places.csv"),
+    "to_ingest/questions": _resource("to_ingest", "questions.csv"),
+    "to_ingest/response_answers": _resource("to_ingest", "response_answers.csv")
 }

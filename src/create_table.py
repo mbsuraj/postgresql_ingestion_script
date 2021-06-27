@@ -9,16 +9,48 @@ def create_tables():
 
     commands = (
         """
-        DROP TABLE IF EXISTS event_finance_customer_order_line_items;
-        CREATE TABLE event_finance_customer_order_line_items (
-            id INTEGER NOT NULL PRIMARY KEY,
-            customer_order_id VARCHAR(255) NOT NULL,
-            event_id INTEGER NOT NULL,
-            event_type VARCHAR(255) NOT NULL,
-            line_item_id VARCHAR(255) NOT NULL,
-            deleted_at VARCHAR(255),
-            created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-            updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        DROP TABLE IF EXISTS places;
+        CREATE TABLE places (
+            place_address_identity VARCHAR(255) PRIMARY KEY,
+            longitude NUMERIC,
+            latitude NUMERIC,
+            city VARCHAR(255),
+            state_abbreviation VARCHAR(255),
+            postal_code VARCHAR(255)
+        )
+        """,
+        """
+        DROP TABLE IF EXISTS questions;
+        CREATE TABLE questions (
+            question_key BIGINT PRIMARY KEY,
+            full_text VARCHAR,
+            question_type VARCHAR(255)
+        )
+        """,
+        """
+        DROP TABLE IF EXISTS response_answers;
+        CREATE TABLE response_answers (
+            mission_identity	TEXT,
+            pin_identity	VARCHAR(255),
+            place_address_identity	VARCHAR(255),
+            organization_name	VARCHAR(255),
+            bee_identity	VARCHAR(255),
+            customer_reporting_period	VARCHAR(255),
+            customer_reporting_period_start	TIMESTAMP WITHOUT TIME ZONE,
+            customer_reporting_period_end	TIMESTAMP WITHOUT TIME ZONE,
+            mission_response_identity	VARCHAR(255),
+            utc_started_at	TIMESTAMP WITHOUT TIME ZONE,
+            local_started_at	TIMESTAMP WITHOUT TIME ZONE,
+            utc_submitted_at	TIMESTAMP WITHOUT TIME ZONE,
+            local_submitted_at	TIMESTAMP WITHOUT TIME ZONE,
+            submitted_latitude	NUMERIC,
+            submitted_longitude	NUMERIC,
+            mission_reward_points	INTEGER,
+            mission_response_status	VARCHAR(255),
+            result_response_id	BIGINT,
+            question_identity	BIGINT,
+            question_position_identifier	VARCHAR(255),
+            response_answer	TEXT
         )
         """,
     )

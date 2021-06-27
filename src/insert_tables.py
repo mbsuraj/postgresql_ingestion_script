@@ -2,14 +2,14 @@ import psycopg2
 from config import config
 from catalog import catalog
 
-def insert_event_finance_customer_order_line_items_table():
+def insert_table(table=None):
     """
     insert multiple rows of the csv into the table
     :return:
     """
     # sql = ''
     conn = None
-    with open(catalog['to_ingest/event_finance_customer_order_line_items'], 'r') as event_finance_customer_order_line_items:
+    with open(catalog[f"to_ingest/{table}"], 'r') as t:
         try:
             # read database configuration
             params = config()
@@ -18,8 +18,8 @@ def insert_event_finance_customer_order_line_items_table():
             # create a new cursor
             cur = conn.cursor()
             # execute the INSERT statement
-            next(event_finance_customer_order_line_items) # skip the header row.
-            cur.copy_expert("""COPY event_finance_customer_order_line_items FROM STDIN WITH (FORMAT CSV)""", event_finance_customer_order_line_items)
+            next(t) # skip the header row.
+            cur.copy_expert(f"""COPY {table} FROM STDIN WITH (FORMAT CSV)""", t)
             # commit the changes to the database
             conn.commit()
             # close communication with the database
@@ -29,7 +29,9 @@ def insert_event_finance_customer_order_line_items_table():
         finally:
             if conn is not None:
                 conn.close()
-        event_finance_customer_order_line_items.close()
+        t.close()
 
 if __name__ == '__main__':
-    insert_event_finance_customer_order_line_items_table()
+    insert_table(table="places")
+    insert_table(table="questions")
+    insert_table(table="response_answers")
