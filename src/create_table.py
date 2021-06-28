@@ -28,6 +28,15 @@ def create_tables():
         )
         """,
         """
+        DROP TABLE IF EXISTS users;
+        CREATE TABLE users (
+            source_bee_identity	VARCHAR(255),
+            account_creation_date	TIMESTAMP WITHOUT TIME ZONE,
+            activation_date	TIMESTAMP WITHOUT TIME ZONE,
+            gender	VARCHAR(255)
+        )
+        """,
+        """
         DROP TABLE IF EXISTS response_answers;
         CREATE TABLE response_answers (
             mission_identity	TEXT,

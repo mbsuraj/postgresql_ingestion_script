@@ -35,3 +35,4 @@ if __name__ == '__main__':
     insert_table(table="places")
     insert_table(table="questions")
     insert_table(table="response_answers")
+    insert_table(table="users")
