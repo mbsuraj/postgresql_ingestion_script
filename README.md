@@ -19,6 +19,6 @@ and DONE!! The data is ingested.
 ## Status
 1. Working to create plugins that allow ingesting data
 of any type (such as .parquet, .xml, .xlsx, .tsv).
-2. Also workint to create plugins that allow ingesting
+2. Also working to create plugins that allow ingesting
 into any type of database (such as PostgreSQL, mySQL, MariaSQL, 
 MSSQL)
