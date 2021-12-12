@@ -12,7 +12,8 @@ The script is developed in Python.
 ## Setup
 1. Modify **_src/database.ini_** with your own database credentials. 
 2. Drop the data into _**data/to_ingest**_ folder.
-3. Run **_ingest.sh_**
+3. Add schema to the **command** variable inside **create_table.py** file.
+4. Run **_ingest.sh_**
 
 and DONE!! The data is ingested.
 

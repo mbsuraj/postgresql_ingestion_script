@@ -2,6 +2,7 @@ import psycopg2
 from config import config
 
 commands = (
+    ## ADD CREATE COMMANDS WITH SCHEMA BELOW (examples below):
         """
         DROP TABLE IF EXISTS places;
         CREATE TABLE places (
@@ -58,7 +59,7 @@ commands = (
         """,
     )
 
-def create_tables():
+def create_tables(create_command=None):
     """
     create tables in the pgSQL database
     :return:
@@ -72,8 +73,7 @@ def create_tables():
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
         # create table one by one
-        for command in commands:
-            cur.execute(command)
+        cur.execute(create_command)
         # close communication with the pgSQL database
         cur.close()
         conn.commit()
@@ -83,6 +83,6 @@ def create_tables():
         if conn is not None:
             conn.close()
 
-
 if __name__ == '__main__':
-    create_tables()
+    for command in commands:
+        create_tables(create_command=command)
