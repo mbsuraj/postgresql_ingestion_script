@@ -2,7 +2,7 @@ import psycopg2
 from config import config
 
 commands = (
-    ## ADD CREATE COMMANDS WITH SCHEMA BELOW (examples below):
+    ## ADD CREATE COMMANDS WITH SCHEMA INSIDE THE TUPLE BELOW (examples below):
         """
         DROP TABLE IF EXISTS places;
         CREATE TABLE places (
