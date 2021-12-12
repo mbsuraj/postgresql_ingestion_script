@@ -1,8 +1,8 @@
 import psycopg2
 from config import config
 
+## ADD CREATE COMMANDS WITH SCHEMA INSIDE THE TUPLE BELOW (remove examples below before adding your commands):
 commands = (
-    ## ADD CREATE COMMANDS WITH SCHEMA INSIDE THE TUPLE BELOW (examples below):
         """
         DROP TABLE IF EXISTS places;
         CREATE TABLE places (
