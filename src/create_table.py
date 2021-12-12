@@ -1,13 +1,7 @@
 import psycopg2
 from config import config
 
-def create_tables():
-    """
-    create tables in the pgSQL database
-    :return:
-    """
-
-    commands = (
+commands = (
         """
         DROP TABLE IF EXISTS places;
         CREATE TABLE places (
@@ -63,6 +57,13 @@ def create_tables():
         )
         """,
     )
+
+def create_tables():
+    """
+    create tables in the pgSQL database
+    :return:
+    """
+
     conn = None
     try:
         # read the connection parameters
