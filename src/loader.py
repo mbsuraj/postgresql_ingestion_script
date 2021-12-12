@@ -1,5 +1,3 @@
-
-
 class Loader:
 
     def __init__(self, curser=None, table=None, tablename=None, format='csv'):
